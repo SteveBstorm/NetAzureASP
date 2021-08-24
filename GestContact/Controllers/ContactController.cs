@@ -5,21 +5,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GestContact.Tools;
+
+using DAL = GlobalModel.Interface;
 
 namespace GestContact.Controllers
 {
     public class ContactController : Controller
     {
-        private IContactService _service;
+        private DAL.IContactService _service;
 
-        public ContactController(IContactService service)
+        public ContactController(DAL.IContactService service)
         {
             _service = service;
         }
 
         public IActionResult Index()
         {
-            return View(_service.GetAll());
+            return View(_service.GetAll().Select(c => c.ToASP()));
         }
 
         public IActionResult Create()
@@ -32,7 +35,7 @@ namespace GestContact.Controllers
         {
             if(ModelState.IsValid)
             {
-                _service.AddContact(c);
+                _service.Create(c.ToDal());
                 return RedirectToAction("Index");
             }
 
@@ -42,24 +45,24 @@ namespace GestContact.Controllers
 
         public IActionResult Detail(int id)
         {
-            return View(_service.GetContact(id));
+            return View(_service.GetById(id).ToASP());
         }
 
         public IActionResult Delete(int id)
         {
-            _service.RemoveContact(id);
+            _service.Delete(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult Edit(int id)
         {
-            return View(_service.GetContact(id));
+            return View(_service.GetById(id).ToASP());
         }
 
         [HttpPost]
         public IActionResult Edit(Contact c)
         {
-            _service.UpdateContact(c);
+            _service.Update(c.ToDal());
             return RedirectToAction("Index");
         }
     }
