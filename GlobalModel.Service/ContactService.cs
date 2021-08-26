@@ -1,8 +1,10 @@
-﻿using GlobalModel.Entities;
+﻿using ADOLibrary;
+using GlobalModel.Entities;
 using GlobalModel.Interface;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -19,34 +21,58 @@ namespace GlobalModel.Service
             _connectionString = config.GetConnectionString("MyConnection");
         }
 
+        public Contact Convert(IDataRecord reader)
+        {
+            return new Contact
+            {
+                Id = (int)reader["Id"],
+                LastName = reader["LastName"].ToString(),
+                FirstName = reader["FirstName"].ToString(),
+                Email = reader["Email"].ToString(),
+                IsFavorite = (bool)reader["IsFavorite"]
+            };
+        }
+
+        #region GetAll() ADO
+        //GetAll() avec ADO complet
+        //public IEnumerable<Contact> GetAll()
+        //{
+        //    using (SqlConnection connection = new SqlConnection(_connectionString))
+        //    {
+        //        using (SqlCommand cmd = connection.CreateCommand())
+        //        {
+        //            connection.Open();
+        //            cmd.CommandText = "SELECT * FROM V_Contact";
+
+        //            using (SqlDataReader reader = cmd.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    yield return new Contact
+        //                    {
+        //                        Id = (int)reader["Id"],
+        //                        LastName = reader["LastName"].ToString(),
+        //                        FirstName = reader["FirstName"].ToString(),
+        //                        Email = reader["Email"].ToString(),
+        //                        IsFavorite = (bool)reader["IsFavorite"]
+        //                    };
+        //                }
+        //            }
+
+        //            connection.Close();
+        //        }
+        //    }
+
+        //} 
+        #endregion
+
         public IEnumerable<Contact> GetAll()
         {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand cmd = connection.CreateCommand())
-                {
-                    connection.Open();
-                    cmd.CommandText = "SELECT * FROM V_Contact";
+            Connection connection = new Connection(SqlClientFactory.Instance, _connectionString);
+            string query = "SELECT * FROM V_Contact";
+            Command cmd = new Command(query);
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            yield return new Contact
-                            {
-                                Id = (int)reader["Id"],
-                                LastName = reader["LastName"].ToString(),
-                                FirstName = reader["FirstName"].ToString(),
-                                Email = reader["Email"].ToString(),
-                                IsFavorite = (bool)reader["IsFavorite"]
-                            };
-                        }
-                    }
-
-                    connection.Close();
-                }
-            }
-
+            return connection.ExecuteReader<Contact>(cmd, Convert);
         }
 
         public Contact GetById(int Id)
