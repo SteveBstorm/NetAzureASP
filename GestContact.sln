@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestContact", "GestContact\
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ContactDatabase", "ContactDatabase\ContactDatabase.sqlproj", "{21F34757-F59B-46C3-AF65-1571A4F7B59D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalModel.Entities", "GlobalModel.Entities\GlobalModel.Entities.csproj", "{CC513469-0EDF-41DD-8BC9-BC62AE4FCA48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalModel.Entities", "GlobalModel.Entities\GlobalModel.Entities.csproj", "{CC513469-0EDF-41DD-8BC9-BC62AE4FCA48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalModel.Service", "GlobalModel.Service\GlobalModel.Service.csproj", "{D30E0829-810A-4D1F-8873-B3AA2A374359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalModel.Service", "GlobalModel.Service\GlobalModel.Service.csproj", "{D30E0829-810A-4D1F-8873-B3AA2A374359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalModel.Interface", "GlobalModel.Interface\GlobalModel.Interface.csproj", "{9BD21BEE-4554-4A88-B6EA-135B0C2C3C69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalModel.Interface", "GlobalModel.Interface\GlobalModel.Interface.csproj", "{9BD21BEE-4554-4A88-B6EA-135B0C2C3C69}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{E65C835C-4196-4585-B293-71D7755035A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOLibrary", "ADOLibrary\ADOLibrary.csproj", "{985106E6-3259-4DD3-B62B-7386BA544353}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{9BD21BEE-4554-4A88-B6EA-135B0C2C3C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD21BEE-4554-4A88-B6EA-135B0C2C3C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD21BEE-4554-4A88-B6EA-135B0C2C3C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985106E6-3259-4DD3-B62B-7386BA544353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{985106E6-3259-4DD3-B62B-7386BA544353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{985106E6-3259-4DD3-B62B-7386BA544353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{985106E6-3259-4DD3-B62B-7386BA544353}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

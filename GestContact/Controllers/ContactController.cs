@@ -24,7 +24,7 @@ namespace GestContact.Controllers
         {
             return View(_service.GetAll().Select(c => c.ToASP()));
         }
-
+        [AdminRequired]
         public IActionResult Create()
         {
             return View();
@@ -42,11 +42,12 @@ namespace GestContact.Controllers
             return View(c);
             
         }
-
+        [AuthRequired]
         public IActionResult Detail(int id)
         {
             return View(_service.GetById(id).ToASP());
         }
+        [AdminRequired]
 
         public IActionResult Delete(int id)
         {
@@ -54,6 +55,7 @@ namespace GestContact.Controllers
             return RedirectToAction("Index");
         }
 
+        [AdminRequired]
         public IActionResult Edit(int id)
         {
             return View(_service.GetById(id).ToASP());

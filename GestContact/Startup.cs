@@ -31,6 +31,8 @@ namespace GestContact
             services.AddScoped<DAL.IContactService, ContactService>();
 
             services.AddControllersWithViews();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +49,8 @@ namespace GestContact
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

@@ -1,0 +1,21 @@
+﻿@using GestContact.Tools;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (SessionHelper.User != null)
+{
+    <p>Bonjour, @SessionHelper.User.Email</p>
+    if(SessionHelper.User.IsAdmin)
+                {
+                    <p>Vous êtes admin</p>
+                }
+    <a asp-action="Logout">Se déconnecter</a>
+}
+else
+{
+    <a asp-action="Login">Se Connecter</a>
+
+}
+
+

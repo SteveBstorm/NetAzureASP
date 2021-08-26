@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ADOLibrary\ADOLibrary.csproj" />
     <ProjectReference Include="..\GlobalModel.Entities\GlobalModel.Entities.csproj" />
     <ProjectReference Include="..\GlobalModel.Interface\GlobalModel.Interface.csproj" />
   </ItemGroup>
