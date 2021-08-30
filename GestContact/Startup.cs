@@ -29,6 +29,7 @@ namespace GestContact
             services.AddSingleton<IContactService>(new FakeContactService());
 
             services.AddScoped<DAL.IContactService, ContactService>();
+            services.AddScoped<DAL.IUsersService, UsersService>();
 
             services.AddControllersWithViews();
 

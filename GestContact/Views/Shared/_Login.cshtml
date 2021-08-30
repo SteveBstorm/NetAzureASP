@@ -1,0 +1,33 @@
+﻿
+@model GestContact.Models.LoginForm
+    @if(GestContact.Tools.SessionHelper.User != null)
+    {
+        <a asp-action="Profil" asp-controller="User">Profil</a>
+        <form asp-action="Logout" asp-controller="Auth">
+            <button class="btn btn-primary">Se déconnecter</button>
+        </form>
+    }
+    else {
+
+    <span>
+        <form asp-action="Login" asp-controller="Auth">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <span>
+                <input asp-for="Email" placeholder="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </span>
+            <span>
+
+                <input asp-for="Password" placeholder="Mot de passe" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </span>
+            <span>
+                <input type="submit" value="Se connecter" class="btn btn-primary" />
+            </span>
+            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Register">S'enregistrer</a>
+        </form>
+    </span>
+    }
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

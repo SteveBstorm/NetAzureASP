@@ -32,5 +32,24 @@ namespace GestContact.Tools
                 IsFavorite = c.IsFavorite
             };
         }
+
+        public static ASP.User ToASP(this DAL.Users u)
+        {
+            return new ASP.User
+            {
+                Id = u.Id,
+                Email = u.Email,
+                IsAdmin = u.IsAdmin
+            };
+        }
+
+        public static DAL.Users ToDal(this ASP.RegisterForm form)
+        {
+            return new DAL.Users
+            {
+                Email = form.Email,
+                Password = form.Password
+            };
+        }
     }
 }

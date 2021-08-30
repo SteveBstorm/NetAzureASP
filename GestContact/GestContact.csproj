@@ -16,4 +16,8 @@
     <ProjectReference Include="..\GlobalModel.Service\GlobalModel.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Auth\" />
+  </ItemGroup>
+
 </Project>

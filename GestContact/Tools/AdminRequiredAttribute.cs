@@ -21,7 +21,7 @@ namespace GestContact.Tools
         {
             if(SessionHelper.User is null || !SessionHelper.User.IsAdmin)
             {
-                context.Result = new RedirectToActionResult("Index", "FakeAuth", null);
+                context.Result = new RedirectToActionResult("Index", "Contact", null);
             }
         }
     }

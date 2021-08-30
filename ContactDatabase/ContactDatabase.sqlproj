@@ -58,13 +58,20 @@
     <Folder Include="Properties" />
     <Folder Include="StoredProc" />
     <Folder Include="Views" />
+    <Folder Include="Table" />
+    <Folder Include="Function" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Contact.sql" />
     <Build Include="StoredProc\ContactCreate.sql" />
     <Build Include="StoredProc\ContactUpdate.sql" />
     <Build Include="StoredProc\ContactDelete.sql" />
     <Build Include="Views\V_Contact.sql" />
+    <Build Include="Table\Contact.sql" />
+    <Build Include="Table\Users.sql" />
+    <Build Include="StoredProc\RegisterUser.sql" />
+    <Build Include="Function\GetSecretKey.sql" />
+    <Build Include="StoredProc\LoginUser.sql" />
+    <Build Include="Views\V_Users.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ContactDatabase.publish.xml" />
